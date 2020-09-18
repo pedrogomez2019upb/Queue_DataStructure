@@ -1,72 +1,54 @@
 package edu.upb.ds.queue;
 
 public class ListNode {
-    public Object object;
+    private Object object;
     public ListNode next;
-    public ListNode before;
 
-    public ListNode(){}
-
-    public ListNode(Object object){
-        object=object;
-        next=null;
-        before=null;
-    }
-
-    public ListNode(Object object, ListNode next, ListNode before) {
+    public ListNode(Object object)
+    {
         this.object = object;
         this.next = next;
-        this.before = before;
+    }
+    public ListNode(){}
+
+    public ListNode(Object object, ListNode next) {
+        this.object = object;
+        this.next = next;
     }
 
-    public Object getObject() {
+    public Object getObject()
+    {
         return object;
     }
 
-    public void setObject(Object object) {
+    public void setObject(Object object)
+    {
         this.object = object;
-    }
-
-    public ListNode getNext() {
-        return next;
-    }
-
-    public void setNext(ListNode next) {
-        this.next = next;
-    }
-
-    public ListNode getBefore() {
-        return before;
-    }
-
-    public void setBefore(ListNode before) {
-        this.before = before;
     }
 
     public void linkNext(ListNode n)
     {
         next=n;
     }
+    public ListNode getNext()
+    {
+        return next;
+    }
 
-    public boolean isEquals(Object objeto) {
-        Object originalObject = this.object;
-        Object newObject = objeto;
-        if (String.valueOf(originalObject).equals(String.valueOf(newObject))) {
-            return true;
-        } else {
-            return false;
-        }
+    public void setNext(ListNode next)
+    {
+        this.next = next;
     }
 
     @Override
     public String toString() {
+
         return String.valueOf(object);
         /*
-        return "ListNode{" +
+                "ListNode{" +
                 "object=" + object +
                 ", next=" + next +
-                ", before=" + before +
                 '}';
-         */
+                */
     }
 }
