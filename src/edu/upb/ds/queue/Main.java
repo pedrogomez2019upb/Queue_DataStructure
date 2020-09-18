@@ -8,7 +8,7 @@ public class Main {
         list1.insert("2");
         //list1.insert("3");
         System.out.println(list1);
-        list1.extract();
+        //list1.extract();
         System.out.println(list1);
     }
 }

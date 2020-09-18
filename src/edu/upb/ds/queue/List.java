@@ -37,6 +37,7 @@ public class List implements ListInterface{
     public void clear() {
         head=null;
         tail=null;
+        size=0;
     }
 
     @Override

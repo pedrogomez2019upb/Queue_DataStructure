@@ -22,14 +22,14 @@ public class ListQueue implements QueueInterface{
 
     @Override
     public Object extract() {
-        Object cabeza = listaQueue.getHead();
-        listaQueue.remove(listaQueue.head.next);
+        Object cabeza = listaQueue.getTail();
+        listaQueue.remove(listaQueue.tail.next);
         return cabeza;
     }
 
     @Override
     public boolean insert(Object object) {
-        return false;
+        return listaQueue.insertHead(object);
     }
 
     @Override
@@ -39,18 +39,26 @@ public class ListQueue implements QueueInterface{
 
     @Override
     public boolean search(Object object) {
-        return false;
+        return listaQueue.contains(object);
     }
 
     @Override
     public void sort() {
-
+        listaQueue.sortList();
     }
 
     @Override
     public void reverse() {
-
+        List listaNueva = new List();
+        for(int i =0; i<listaQueue.size ; i++){
+            listaNueva.insertTail(listaQueue.get(i));
+        }
     }
 
-
+    @Override
+    public String toString() {
+        return "ListQueue{" +
+                "listaQueue=" + String.valueOf(listaQueue) +
+                '}';
+    }
 }
