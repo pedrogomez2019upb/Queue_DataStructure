@@ -3,41 +3,55 @@ package edu.upb.ds.queue;
 public class ListQueue implements QueueInterface{
 
     public int size;
-    public ListNode top;
-    public ListNode buttom;
+    private List lista;
 
     public ListQueue(){}
 
-    public ListQueue(int size, ListNode top, ListNode buttom) {
+    public ListQueue(int size, List lista) {
         this.size = 0;
-        this.top = top;
-        this.buttom = buttom;
+        this.lista = null;
     }
 
     @Override
     public void clear() {
-        top=buttom=null;
+        lista=null;
         size=0;
     }
 
     @Override
     public boolean isEmpty() {
-        return top==null;
+        return lista.isEmpty();
     }
 
     @Override
     public Object extract() {
-        return null;
+        if (!isEmpty()){
+                Object object= lista.tail.getObject();
+                lista.tail= lista.tail.next;
+                return object;
+        } else {
+            return null;
+        }
     }
 
     @Override
     public boolean insert(Object object) {
-        return false;
+        ListNode temporaryNode = new ListNode(object);
+        if (!isEmpty()){
+            temporaryNode.next=lista.tail;
+            lista.tail=temporaryNode;
+        }
+        else {
+            temporaryNode.next=lista.tail;
+            lista.tail=temporaryNode;
+        }
+        size++;
+        return true;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -55,4 +69,11 @@ public class ListQueue implements QueueInterface{
 
     }
 
+    @Override
+    public String toString() {
+        return "ListQueue{" +
+                "size=" + size +
+                ", lista=" + lista +
+                '}';
+    }
 }
