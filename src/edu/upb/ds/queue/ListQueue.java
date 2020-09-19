@@ -53,6 +53,7 @@ public class ListQueue implements QueueInterface{
         for(int i =0; i<listaQueue.size ; i++){
             listaNueva.insertTail(listaQueue.get(i));
         }
+        listaQueue=listaNueva;
     }
 
     @Override
