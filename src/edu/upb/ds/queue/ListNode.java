@@ -42,13 +42,9 @@ public class ListNode {
 
     @Override
     public String toString() {
-
-        return String.valueOf(object);
-        /*
-                "ListNode{" +
+        return "ListNode{" +
                 "object=" + object +
                 ", next=" + next +
                 '}';
-                */
     }
 }
