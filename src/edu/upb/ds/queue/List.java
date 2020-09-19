@@ -166,7 +166,17 @@ public class List implements ListInterface{
 
     @Override
     public boolean insertHead(Object object) {
-        return false;
+        if (isEmpty()) {
+            head = new ListNode(object);
+            tail = head;
+            size++;
+        } else {
+            ListNode node = new ListNode(object);
+            node.next = head;
+            head = node;
+            size++;
+        }
+        return true;
     }
 
     @Override
@@ -195,22 +205,27 @@ public class List implements ListInterface{
     @Override
     public boolean remove(ListNode node)
     {
-        ListNode temporalNode=head;
-        ListNode actualNode=head;
-        if(actualNode==node){
-            head=actualNode.next;
-        }else {
-            while (actualNode.next != null ) {
-                if (actualNode == node){
+        ListNode temporalNode = head;
+        ListNode actualNode = head;
+        if (actualNode == node) {
+            head = actualNode.next;
+            size--;
+
+        } else {
+            while (actualNode.next != null) {
+
+                if (actualNode == node) {
                     break;
                 }
                 temporalNode = actualNode;
                 actualNode = actualNode.next;
             }
-            tail=temporalNode;
-            tail.next= actualNode.next;
+
+            tail = temporalNode;
+            tail.next = actualNode.next;
+            size--;
+
         }
-        size--;
         return true;
     }
 
@@ -344,6 +359,5 @@ public class List implements ListInterface{
         }
         return null;
     }
-
 
 }

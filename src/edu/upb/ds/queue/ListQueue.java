@@ -4,12 +4,6 @@ public class ListQueue implements QueueInterface{
 
     private List listaQueue= new List();
 
-    public ListQueue(){}
-
-    public ListQueue(List listaQueue) {
-        this.listaQueue = listaQueue;
-    }
-
     @Override
     public void clear() {
         listaQueue.clear();
@@ -22,9 +16,15 @@ public class ListQueue implements QueueInterface{
 
     @Override
     public Object extract() {
-        Object cabeza = listaQueue.getTail();
-        listaQueue.remove(listaQueue.tail.next);
-        return cabeza;
+        try {
+            Object cabeza = listaQueue.getTail();
+            listaQueue.remove(listaQueue.tail);
+            return cabeza;
+        }
+        catch (Exception e){
+            Object error = null;
+            return error ;
+        }
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ListQueue implements QueueInterface{
 
     @Override
     public int size() {
-        return 0;
+        return listaQueue.size;
     }
 
     @Override
