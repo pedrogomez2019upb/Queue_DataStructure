@@ -24,7 +24,9 @@ public class PriorityQueueArrays {
             arrayPrioridad[prioridad].insert(datoNuevo);
         }
 
-        System.out.println(arrayPrioridad.toString());
+        for (int i = 0; i < arrayPrioridad.length; i++) {
+                System.out.println(arrayPrioridad[i].extract());
+        }
     }
 
 }
